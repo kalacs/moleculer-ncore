@@ -5,52 +5,51 @@
  */
 
 "use strict";
+const createNCoreApi = require("ncore-api");
+let ncoreApi;
 
 module.exports = {
-
 	name: "ncore",
-
 	/**
 	 * Default settings
 	 */
 	settings: {
-
+		username: "",
+		password: "",
+		url: "https://ncore.pro"
 	},
 
 	/**
 	 * Actions
 	 */
 	actions: {
-		test(ctx) {
-			return "Hello " + (ctx.params.name || "Anonymous");
+		getMovies(ctx) {
+			return ncoreApi.getMovies();
+		},
+		getMovie(ctx) {
+			return ncoreApi.getMovie(ctx.params);
+		},
+		downloadTorrentFile(ctx) {
+			return ncoreApi.getTorrentFile(ctx.params);
+		},
+		getMovieByImdb(ctx) {
+			return ncoreApi.getMovieByImdb(ctx.params);
 		}
-	},
-
-	/**
-	 * Methods
-	 */
-	methods: {
-
-	},
-
-	/**
-	 * Service created lifecycle event handler
-	 */
-	created() {
-
 	},
 
 	/**
 	 * Service started lifecycle event handler
 	 */
-	started() {
-
-	},
-
-	/**
-	 * Service stopped lifecycle event handler
-	 */
-	stopped() {
-
+	async started() {
+		try {
+			ncoreApi = await createNCoreApi({
+				username: this.settings.username,
+				password: this.settings.password,
+				url: this.settings.url
+			});
+			this.logger.info("Successfully logged in to nCore");
+		} catch (error) {
+			this.logger.error(error);
+		}
 	}
 };

@@ -1,7 +1,7 @@
 {
   "name": "moleculer-ncore",
   "version": "0.1.0",
-  "description": "Service for NCore torrent provider",
+  "description": "Service for nCore torrent provider",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon examples/index.js",
@@ -54,5 +54,8 @@
   },
   "engines": {
     "node": ">= 10.x.x"
+  },
+  "dependencies": {
+    "ncore-api": "^0.4.0"
   }
 }

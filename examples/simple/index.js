@@ -1,7 +1,7 @@
 "use strict";
 
-let { ServiceBroker } 	= require("moleculer");
-let MyService 			= require("../../index");
+let { ServiceBroker } = require("moleculer");
+let MyService = require("../../index");
 
 // Create broker
 let broker = new ServiceBroker({
@@ -9,15 +9,12 @@ let broker = new ServiceBroker({
 });
 
 // Load my service
-broker.createService(MyService);
+broker.createService({
+	mixins: MyService
+});
 
 // Start server
 broker.start().then(() => {
-
 	// Call action
-	broker
-		.call("ncore.test", { name: "John Doe" })
-		.then(broker.logger.info)
-		.catch(broker.logger.error);
-
+	broker.call("ncore.getMovies").then(broker.logger.info).catch(broker.logger.error);
 });
