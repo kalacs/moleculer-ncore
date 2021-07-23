@@ -56,6 +56,6 @@
     "node": ">= 10.x.x"
   },
   "dependencies": {
-    "ncore-api": "^0.4.0"
+    "ncore-api": "^0.5.0"
   }
 }

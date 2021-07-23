@@ -23,8 +23,11 @@ module.exports = {
 	 * Actions
 	 */
 	actions: {
-		getMovies(ctx) {
-			return ncoreApi.getMovies();
+		getMovies: {
+			params: {},
+			handler(ctx) {
+				return ncoreApi.getMovies(ctx.params);
+			}
 		},
 		getMovie(ctx) {
 			return ncoreApi.getMovie(ctx.params);
