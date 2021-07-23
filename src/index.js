@@ -44,14 +44,35 @@ module.exports = {
 				return ncoreApi.getMovies(ctx.params);
 			}
 		},
-		getMovie(ctx) {
-			return ncoreApi.getMovie(ctx.params);
+		getMovieById: {
+			params: {
+				id: {
+					type: "string"
+				}
+			},
+			handler(ctx) {
+				return ncoreApi.getMovie(ctx.params.id);
+			}
 		},
-		downloadTorrentFile(ctx) {
-			return ncoreApi.getTorrentFile(ctx.params);
+		getTorrentFile: {
+			params: {
+				id: {
+					type: "string"
+				}
+			},
+			handler(ctx) {
+				return ncoreApi.getTorrentFile(ctx.params.id);
+			}
 		},
-		getMovieByImdb(ctx) {
-			return ncoreApi.getMovieByImdb(ctx.params);
+		getMovieByImdb: {
+			params: {
+				imdbId: {
+					type: "string"
+				}
+			},
+			handler(ctx) {
+				return ncoreApi.getMovieByImdb(ctx.params.imdbId);
+			}
 		}
 	},
 
