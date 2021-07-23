@@ -24,8 +24,23 @@ module.exports = {
 	 */
 	actions: {
 		getMovies: {
-			params: {},
+			params: {
+				genres: {
+					type: "array",
+					items: "string",
+					default: []
+				},
+				sortBy: {
+					type: "string",
+					default: "uploaded"
+				},
+				sortDirection: {
+					type: "string",
+					default: "DESC"
+				}
+			},
 			handler(ctx) {
+				ctx.broker.logger.info(ctx.params);
 				return ncoreApi.getMovies(ctx.params);
 			}
 		},
