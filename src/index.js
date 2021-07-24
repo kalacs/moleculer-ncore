@@ -14,6 +14,7 @@ module.exports = {
 	 * Default settings
 	 */
 	settings: {
+		//		$secureSettings: ["username", "password"],
 		username: "",
 		password: "",
 		url: "https://ncore.pro"
@@ -80,6 +81,10 @@ module.exports = {
 	 * Service started lifecycle event handler
 	 */
 	async started() {
+		if (!this.settings.username || !this.settings.password) {
+			throw new Error("username and password is required");
+		}
+
 		try {
 			ncoreApi = await createNCoreApi({
 				username: this.settings.username,
