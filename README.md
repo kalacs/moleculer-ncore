@@ -1,6 +1,6 @@
 ![Moleculer logo](http://moleculer.services/images/banner.png)
 
-[![Build Status](https://travis-ci.org/kalacs/moleculer-ncore.svg?branch=master)](https://travis-ci.org/kalacs/moleculer-ncore)
+[![Build Status](https://travis-ci.com/kalacs/moleculer-ncore.svg?branch=main)](https://travis-ci.com/kalacs/moleculer-ncore)
 [![Coverage Status](https://coveralls.io/repos/github/kalacs/moleculer-ncore/badge.svg)](https://coveralls.io/github/kalacs/moleculer-ncore)
 [![Known Vulnerabilities](https://snyk.io/test/github/kalacs/moleculer-ncore/badge.svg)](https://snyk.io/test/github/kalacs/moleculer-ncore)
 [![NPM version](https://img.shields.io/npm/v/moleculer-ncore.svg)](https://www.npmjs.com/package/moleculer-ncore)
