@@ -26,6 +26,7 @@ module.exports = {
 	actions: {
 		getMovies: {
 			params: {
+				$$strict: true,
 				genres: {
 					type: "array",
 					items: "string",
@@ -41,7 +42,6 @@ module.exports = {
 				}
 			},
 			handler(ctx) {
-				ctx.broker.logger.info(ctx.params);
 				return ncoreApi.getMovies(ctx.params);
 			}
 		},
